@@ -170,7 +170,7 @@ function setShortCuts() {
     document.addEventListener("keydown", function (event) {
 
         //across all pages to set focus to left menu
-        if ((event.ctrlKey || event.metaKey && event.shiftKey) && event.keyCode == 70) { //cmd||ctrl-shift-s
+        if ((event.ctrlKey || event.metaKey) && event.shiftKey && event.keyCode == 70) { //ctrl||cmd-shift-f
             var doc = (window.self == window.top) ? document : top.document;
             if (doc.getElementById('filter')) { //switch between Navigator and search on hitting cmd-shift-f
                 var elm = (document.activeElement.id != 'filter') ? 'filter' : 'sysparm_search';
@@ -182,7 +182,7 @@ function setShortCuts() {
         //a few specific for forms
         else if (typeof g_form != 'undefined') {
             mySysId = g_form.getUniqueValue();
-            if ((event.ctrlKey || event.metaKey) && event.keyCode == 83) { //cmd-s
+            if ((event.ctrlKey || event.metaKey) && event.keyCode == 83) { //ctrl||cmd-s
 
                 event.preventDefault();
                 var doInsertStay = false;
@@ -197,7 +197,7 @@ function setShortCuts() {
                 gsftSubmit(null, g_form.getFormElement(), action);
                 return false;
             }
-            else if ((event.ctrlKey || event.metaKey) && event.keyCode == 85) { //cmd-u 
+            else if ((event.ctrlKey || event.metaKey) && event.keyCode == 85) { //ctrl||cmd-u 
                 event.preventDefault();
                 var action = (g_form.newRecord) ? "sysverb_insert" : "sysverb_update";
                 gsftSubmit(null, g_form.getFormElement(), action);
